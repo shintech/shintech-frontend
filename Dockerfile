@@ -21,7 +21,6 @@ RUN printf "Installing dependencies...\n" &&\
   yarn install && \
 
   printf "Building in progress...\nPlease wait...\n" && \
-  webpack --progress --display-reasons --display-modules --display-chunks && \
   npm run build 
 
 CMD dumb-init npm start
