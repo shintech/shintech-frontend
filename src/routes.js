@@ -8,12 +8,6 @@ export default function getRouter (options) {
 
   router.route('/models')
     .get(models(options).fetchAllModels)
-    // .post(models(options).createModel)
-
-  // router.route('/models/:id')
-  //   .get(models(options).getSingleModel)
-  //   .put(models(options).updateSingleModel)
-  //   .delete(models(options).removeModel)
 
   return router
 }

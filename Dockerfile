@@ -7,7 +7,6 @@ WORKDIR /shintech
 COPY . .
 
 RUN rm -rv node_modules build --force && \
-  npm install -g webpack && \
   printf "Creating file directories...\n" && \
   mkdir build && \
   mkdir build/static && \
