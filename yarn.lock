@@ -3715,6 +3715,12 @@ p-timeout@^1.1.1:
   dependencies:
     p-finally "^1.0.0"
 
+pagurbate@^0.5.3:
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/pagurbate/-/pagurbate-0.5.3.tgz#0db4248f7148306cfd63a7deb40ad89e67411dd3"
+  dependencies:
+    standard "^10.0.2"
+
 pako@~0.2.0:
   version "0.2.9"
   resolved "https://registry.yarnpkg.com/pako/-/pako-0.2.9.tgz#f3f7522f4ef782348da8161bad9ecfd51bf83a75"

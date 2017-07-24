@@ -1,0 +1,39 @@
+.message-block {
+  color: green;
+}
+
+.has-error {
+  color: red;
+}
+
+
+table {
+  border: 1px solid black;
+}
+
+.table-header {
+  background-color: rgb(231, 231, 230);
+  text-align: center;
+}
+
+th, td {
+  text-align: center;
+}
+
+body {
+  background-color: lighten(lightgrey, 10%);
+}
+
+.panel-footer {
+  border: 1px solid black;
+}
+
+.pagurbate {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.pagination, ul { 
+  width: 120%;
+} 
+

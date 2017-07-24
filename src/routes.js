@@ -9,5 +9,8 @@ export default function getRouter (options) {
   router.route('/models')
     .get(models(options).fetchAllModels)
 
+  router.route('/models/:id')
+    .get(models(options).fetchSingleModel)
+
   return router
 }

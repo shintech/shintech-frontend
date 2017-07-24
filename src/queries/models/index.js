@@ -7,9 +7,26 @@ export default function getAllRoutes (options) {
   const { shintechServerpsql, logger } = options
 
   queries.fetchAllModels = (req, res, next) => {
-    let address = url.resolve(shintechServerpsql, '/api/models')
+    let address = url.resolve(shintechServerpsql, '/api/models?page=' + req.query.page)
     res.setHeader('Content-Type', 'application/json')
-    const stream = got.stream(address)
+    let stream = got.stream(address)
+    stream.pipe(res)
+
+    stream.on('error', err => {
+      logger.error(err)
+      res.send({
+        'error': err
+      })
+    })
+  }
+
+  queries.fetchSingleModel = (req, res, next) => {
+    const modelID = parseInt(req.params.id)
+
+    let address = url.resolve(shintechServerpsql, '/api/models/' + modelID)
+    console.log(address)
+    res.setHeader('Content-Type', 'application/json')
+    let stream = got.stream(address)
     stream.pipe(res)
 
     stream.on('error', err => {
