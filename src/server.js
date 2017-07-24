@@ -19,7 +19,7 @@ const options = {
   logger: winston,
   config: config,
   packageDir: _parentDir,
-  serverAddress: process.env.SERVER_ADDRESS
+  shintechServerpsql: process.env.SHINTECH_SERVER_PSQL
 }
 
 const { app, environment } = options
