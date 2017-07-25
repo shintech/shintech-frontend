@@ -1,12 +1,11 @@
 const config = {}
-console.log(window.location.hostname)
-config.development = {
 
-  url: 'https://' + (window.location.hostname) + ':8443/'
+config.development = {
+  url: 'https://dev.shintech.ninja:8443/'
 }
 
 config.production = {
-  url: 'https://' + (window.location.hostname) + '/'
+  url: 'https://shintech.ninja/'
 }
 
 export default config
