@@ -1,7 +1,8 @@
 const config = {}
-
+console.log(window.location.hostname)
 config.development = {
-  url: 'http://' + (window.location.hostname) + '/'
+
+  url: 'https://' + (window.location.hostname) + ':8443/'
 }
 
 config.production = {

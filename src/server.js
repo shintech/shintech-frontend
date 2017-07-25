@@ -8,6 +8,7 @@ import favicon from 'serve-favicon'
 import httpervert from 'httpervert'
 import path from 'path'
 import getRouter from './routes'
+import session from 'express-session'
 
 const _parentDir = require(path.join(path.dirname(__dirname), 'package.json'))
 const _bootstrapDir = require.resolve('bootstrap').match(/.*\/node_modules\/[^/]+\//)[0]
@@ -24,6 +25,19 @@ const options = {
 }
 
 const { app, environment } = options
+const RedisStore = require('connect-redis')(session)
+const store = new RedisStore({
+  url: config.redisStore.url
+})
+
+app.use(session({
+  store: store,
+  secret: config.redisStore.secret,
+  resave: false,
+  saveUninitialized: false
+}))
+
+options.redis = store
 
 app.use(helmet())
 

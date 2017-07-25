@@ -4,7 +4,7 @@ import got from 'got'
 const queries = {}
 
 export default function getAllRoutes (options) {
-  const { shintechServerpsql, logger } = options
+  const { shintechServerpsql, logger, redis } = options
 
   queries.fetchAllModels = (req, res, next) => {
     let address
@@ -17,7 +17,7 @@ export default function getAllRoutes (options) {
 
     res.setHeader('Content-Type', 'application/json')
     let stream = got.stream(address)
-    stream.pipe(res)
+    let body = []
 
     stream.on('error', err => {
       logger.error(err)
@@ -25,6 +25,15 @@ export default function getAllRoutes (options) {
         'error': err
       })
     })
+
+    stream.on('data', (result) => {
+      body.push(result)
+    })
+
+    stream.on('end', () => {
+      redis.client.setex('data', 3600, body.toString())
+    })
+    stream.pipe(res)
   }
 
   queries.fetchSingleModel = (req, res, next) => {
