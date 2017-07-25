@@ -1,13 +1,13 @@
 {
   "name": "shintech-frontend",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "main": "build/server.js",
   "repository": "https://github.com/shintech/shintech-frontend",
   "author": "Michael Prather",
   "license": "MIT",
   "scripts": {
     "start": "node build/server.js",
-    "dev": "SHINTECH_SERVER_PSQL=http://localhost:55460 NODE_ENV=development PORT=8000  TZ='America/Chicago' nodemon build/server.js",
+    "dev": "SHINTECH_SERVER_PSQL=http://localhost:55460 SHINTECH_SERVER_MYSQL=http://localhost:55461 NODE_ENV=development PORT=8000  TZ='America/Chicago' nodemon build/server.js",
     "test": "PORT=8001 REDIS_STORE_URI=redis://localhost:6379 REDIS_STORE_SECRET=secret TZ='America/Chicago' NODE_ENV=test mocha build/test -t 10000",
     "build": "babel -d build src",
     "watch": "babel --watch -d build src | ts '[%Y-%m-%d %H:%M:%S]'",

@@ -1,5 +1,5 @@
 import express from 'express'
-import {models} from './queries'
+import {models, users} from './queries'
 
 export default function getRouter (options) {
   const router = express.Router()
@@ -11,6 +11,12 @@ export default function getRouter (options) {
 
   router.route('/models/:id')
     .get(models(options).fetchSingleModel)
+
+  router.route('/users')
+    .get(users(options).fetchAllUsers)
+
+  router.route('/users/:id')
+    .get(users(options).fetchSingleUser)
 
   return router
 }

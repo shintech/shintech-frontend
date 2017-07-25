@@ -19,7 +19,8 @@ const options = {
   logger: winston,
   config: config,
   packageDir: _parentDir,
-  shintechServerpsql: process.env.SHINTECH_SERVER_PSQL
+  shintechServerpsql: process.env.SHINTECH_SERVER_PSQL,
+  shintechServermysql: process.env.SHINTECH_SERVER_MYSQL
 }
 
 const { app, environment } = options
