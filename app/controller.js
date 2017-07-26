@@ -13,7 +13,7 @@ const Controller = Marionette.Object.extend({
   },
 
   index: function () {
-    console.log('index')
+    console.log(window.location.hostname)
   },
 
   page: function (page) {
