@@ -49,6 +49,8 @@ export default function getRouter (options) {
 
   router.route('/models/:id')
     .get(models(options).fetchSingleModel)
+    .put(models(options).updateModel)
+    .delete(models(options).removeModel)
 
   router.route('/users')
     .get(users(options).fetchAllUsers)

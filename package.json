@@ -1,6 +1,6 @@
 {
   "name": "shintech-frontend",
-  "version": "0.0.14",
+  "version": "0.1.0",
   "main": "build/server.js",
   "repository": "https://github.com/shintech/shintech-frontend",
   "author": "Michael Prather",
