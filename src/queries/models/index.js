@@ -53,5 +53,26 @@ export default function getAllRoutes (options) {
     })
   }
 
+  queries.createModel = (req, res, next) => {
+    let address = url.resolve(shintechServerpsql, '/api/models')
+
+    got.post(address, {
+      json: true,
+      body: {
+        name: req.body.name,
+        attribute: req.body.attribute
+      }
+    })
+    .then(function () {
+      res.json({
+        status: 'success',
+        message: 'successfully created one model...'
+      })
+    })
+    .catch(function (err) {
+      next(err)
+    })
+  }
+
   return queries
 }
